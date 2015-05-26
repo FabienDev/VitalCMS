@@ -1,0 +1,19 @@
+RewriteEngine on
+RewriteBase /
+RewriteRule ^articles/categorie/(.*)$   /index.php?page=articles&categorie=$1 [L]
+RewriteRule ^articles/page/(.*)$   /index.php?page=articles&p=$1 [L]
+RewriteRule ^articles/tag/(.*)$   /index.php?page=articles&tag=$1 [L]
+RewriteRule ^articles/(.*)$   /index.php?page=articles&article=$1 [L]
+RewriteRule ^articles$  /index.php?page=articles [L] 
+RewriteRule ^parcours$  /index.php?page=parcours [L]  
+RewriteRule ^veille$  /index.php?page=veille [L] 
+RewriteRule ^$  /index.php?page=accueil [L] 
+RewriteEngine On 
+Redirect permanent /pagesAdmin http://nicolasbroisin.fr/accueil
+
+
+RewriteCond %{REQUEST_URI} !maintenance.html 
+RewriteCond %{REQUEST_FILENAME} !(css|images|js|jpg).+$    
+
+RewriteCond %{REMOTE_ADDR} !^128\.78\.209\.238
+RewriteRule (.*) /maintenance.html [R,L]   
