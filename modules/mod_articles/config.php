@@ -1,7 +1,7 @@
 <?php
 // controler
 
-include('./composants/com_articles.php');
+include('./composants/articles/com_articles.php');
 
 class config_articles{
 	
