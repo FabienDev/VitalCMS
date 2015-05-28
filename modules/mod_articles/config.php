@@ -1,5 +1,7 @@
 <?php
-include('./modules/mod_articles/articles.php');
+// controler
+
+include('./composants/com_articles.php');
 
 class config_articles{
 	
@@ -11,8 +13,8 @@ class config_articles{
 		$idArticle = $config->id;
 
 		$cl_articles = new articles();
-		$article = $cl_articles->aff_article($idArticle, $connexion);
+		$article = $cl_articles->show_article($idArticle, $connexion);
 
-		return $article;
+		include_once("./modules/mod_articles/views/default.php");
 	}
 }

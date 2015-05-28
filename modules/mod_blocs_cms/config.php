@@ -1,6 +1,6 @@
 <?php
 
-include_once('./system/modules/mod_blocs_cms/blocs_cms.php');
+include_once('./modules/mod_blocs_cms/blocs_cms.php');
 
 class config_blocs_cms{
 	
