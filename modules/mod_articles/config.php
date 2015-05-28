@@ -12,7 +12,7 @@ class config_articles{
 
 		$idArticle = $config->id;
 
-		$cl_articles = new articles();
+		$cl_articles = new com_articles();
 		$article = $cl_articles->show_article($idArticle, $connexion);
 
 		include_once("./modules/mod_articles/views/default.php");

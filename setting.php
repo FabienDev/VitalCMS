@@ -6,11 +6,11 @@ class setting{
 	
 	function setting($connexion){
 		// Modules systèmes
-		include($_SERVER['DOCUMENT_ROOT']."/system/modules/mod_blocs_cms/config.php");
-		include_once ($_SERVER['DOCUMENT_ROOT']."/system/modules/mod_listing_articles/config.php");
+		include($_SERVER['DOCUMENT_ROOT']."/modules/mod_blocs_cms/config.php");
+		include_once ($_SERVER['DOCUMENT_ROOT']."/modules/mod_listing_articles/config.php");
 		//include($_SERVER['DOCUMENT_ROOT']."/system/modules/mod_logo/config.php");
-		include_once ($_SERVER['DOCUMENT_ROOT']."/system/modules/mod_pages_cms/config.php");
-		include_once ($_SERVER['DOCUMENT_ROOT']."/system/modules/mod_articles/config.php");
+		include_once ($_SERVER['DOCUMENT_ROOT']."/modules/mod_pages_cms/config.php");
+		include_once ($_SERVER['DOCUMENT_ROOT']."/modules/mod_articles/config.php");
 		
 		// Modules ajoutés
 		$configuration = $connexion->query("SELECT * FROM set_modules WHERE active='1'");

@@ -1,6 +1,6 @@
 <?php
 
-include('./system/modules/mod_listing_articles/listing_articles.php');
+include_once('./composants/com_articles/articles.php');
 
 class config_listing_articles{
 	
@@ -8,10 +8,10 @@ class config_listing_articles{
 		$configuration = $connexion->query("SELECT * FROM mod_listing_articles WHERE id=".$idListingArticles."");
 		$config = $configuration->fetch_object();
 
-		$listing_articles = new articles();
-		// $nbArticlesParPage, $pagination, $categorie, $orderType, $order
-		$liste_articles = $listing_articles->listing_articles($config->nbArticlesParPage, $config->pagination, $config->categorie, $config->orderType, $order->order, $connexion);
+		$listing_articles = new com_articles();
+		$articles = $listing_articles->listing_articles($config->nbArticlesParPage, $config->pagination, $config->categorie, $config->orderType, $order->order, $connexion);
 
-		return $liste_articles;
+		include_once("./modules/mod_listing_articles/views/default.php");
 	}
+	
 }
