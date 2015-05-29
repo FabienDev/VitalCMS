@@ -45,9 +45,9 @@ class com_articles {
 
 		if($liste['fin'] > ($_GET['p']-1)* $nbArticlesParPage){
 			if($categorie){
-				$listeArticles = $connexion->query("SELECT * FROM articles WHERE categorie = ".$categorie." ORDER BY ".$orderType." ".$order." LIMIT $debut, $fin");
+				$listeArticles = $connexion->query("SELECT * FROM articles WHERE categorie = ".$categorie." ORDER BY ".$orderType." ".$order." LIMIT $liste['debut'], $liste['fin']");
 			}else{
-				$listeArticles = $connexion->query("SELECT * FROM articles ORDER BY ".$orderType." ".$order." LIMIT $debut, $fin");
+				$listeArticles = $connexion->query("SELECT * FROM articles ORDER BY ".$orderType." ".$order." LIMIT $liste['debut'], $liste['fin']");
 			}
 			
 			while($articles = $listeArticles->fetch_object()){
