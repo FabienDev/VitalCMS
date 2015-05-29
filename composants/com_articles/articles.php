@@ -27,7 +27,7 @@ class com_articles {
 
 	}
 
-	function listing_articles($nbArticlesParPage, $pagination = 1, $categorie = null, $orderType = null, $order = null, $connexion){
+	function listing_articles($nbArticlesParPage, $pagination = 1, $categorie = null, $orderType = 'id', $order = 'DESC', $connexion){
 		$nbArticles = 0;
 		$i = 0;
 
@@ -44,7 +44,7 @@ class com_articles {
 		$nbArticles = $nbArticles->fetch_object()->nbArt;
 
 		if($liste['fin'] > ($_GET['p']-1)* $nbArticlesParPage){
-			if($categorie != 0){
+			if($categorie){
 				$listeArticles = $connexion->query("SELECT * FROM articles WHERE categorie = ".$categorie." ORDER BY ".$orderType." ".$order." LIMIT $debut, $fin");
 			}else{
 				$listeArticles = $connexion->query("SELECT * FROM articles ORDER BY ".$orderType." ".$order." LIMIT $debut, $fin");
